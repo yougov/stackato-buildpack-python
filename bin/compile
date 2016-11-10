@@ -58,7 +58,8 @@ if [[ -f requirements.pypm ]]; then
 fi
 
 if [[ -f requirements.txt ]]; then
-	puts-step "Installing requirements via pip"
+	PIP_VERSION=$(python -m pip --version)
+	puts-step "Installing requirements via pip $PIP_VERSION"
 	$APYBIN/pip install --user --use-mirrors -r requirements.txt | cleanup_pip | indent
 fi
 
